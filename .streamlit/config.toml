@@ -1,0 +1,25 @@
+[server]
+headless = true
+
+[browser]
+gatherUsageStats = false
+
+[theme]
+base = "dark"
+primaryColor = "#1685ff"
+backgroundColor = "#061220"
+secondaryBackgroundColor = "#102238"
+textColor = "#edf5ff"
+font = "sans-serif"
+
+[theme.light]
+primaryColor = "#0869d6"
+backgroundColor = "#f2f6fc"
+secondaryBackgroundColor = "#ffffff"
+textColor = "#102338"
+
+[theme.dark]
+primaryColor = "#1685ff"
+backgroundColor = "#061220"
+secondaryBackgroundColor = "#102238"
+textColor = "#edf5ff"

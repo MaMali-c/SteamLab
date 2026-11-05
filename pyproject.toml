@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=75", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "steamlab"
+version = "1.0.0"
+description = "Bilingual water and steam property calculator with traceable table comparison"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = ["iapws==1.5.5", "streamlit==1.66.1", "pandas>=2.2,<4", "altair>=6,<7"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1", "build>=1,<2"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+
+[tool.ruff]
+target-version = "py311"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I"]

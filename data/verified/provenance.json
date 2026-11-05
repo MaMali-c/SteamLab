@@ -1,0 +1,14 @@
+{
+  "source_filename": "SteamTableSI.pdf",
+  "sha256": "70ae4c4f3335ed23801ef25f22d94907c587646c7e756768dc66cab9350de3f8",
+  "page_count": 19,
+  "sample_records": 19,
+  "review_method": "Visual transcription and visual cross-check by the assistant; not an independent human audit. OCR was not trusted for table values.",
+  "review_date": "2026-11-03",
+  "bibliographic_origin": "Not established from the supplied extract. No IF97 equivalence is assumed.",
+  "original_volume_unit": "cm^3/g",
+  "normalized_volume_unit": "m^3/kg",
+  "volume_multiplier": 0.001,
+  "missing_cells": "Not transcribed; never zero-filled.",
+  "coverage": "Saturation endpoints at 20/25/30 degC; superheated selected rows at 100/500/750 kPa. See CSV for exact coverage."
+}

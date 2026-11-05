@@ -1,0 +1,24 @@
+{
+  "source": "IAPWS R7-97(2012), revised IF97 release",
+  "url": "https://iapws.org/technical-guidance/release/IF97-Rev",
+  "notes": "Fixed published verification values, never regenerated from the implementation. Region 3 uses published rounded pressure and specific volume 1/rho; tolerance allows input rounding. Table 36 is tested separately.",
+  "states": [
+    {"id":"R1_A","table":5,"T":300,"P":3,"region":1,"v":0.00100215168,"h":115.331273,"u":112.324818,"s":0.392294792,"rtol":1e-8},
+    {"id":"R1_B","table":5,"T":300,"P":80,"region":1,"v":0.000971180894,"h":184.142828,"u":106.448356,"s":0.368563852,"rtol":1e-8},
+    {"id":"R1_C","table":5,"T":500,"P":3,"region":1,"v":0.00120241800,"h":975.542239,"u":971.934985,"s":2.58041912,"rtol":1e-8},
+    {"id":"R2_A","table":15,"T":300,"P":0.0035,"region":2,"v":39.4913866,"h":2549.91145,"u":2411.69160,"s":8.52238967,"rtol":1e-8},
+    {"id":"R2_B","table":15,"T":700,"P":0.0035,"region":2,"v":92.3015898,"h":3335.68375,"u":3012.62819,"s":10.1749996,"rtol":1e-8},
+    {"id":"R2_C","table":15,"T":700,"P":30,"region":2,"v":0.00542946619,"h":2631.49474,"u":2468.61076,"s":5.17540298,"rtol":1e-8},
+    {"id":"R3_A","table":33,"T":650,"P":25.5837018,"region":3,"v":0.002,"h":1863.43019,"u":1812.26279,"s":4.05427273,"rtol":1e-7},
+    {"id":"R3_B","table":33,"T":650,"P":22.2930643,"region":3,"v":0.005,"h":2375.12401,"u":2263.65868,"s":4.85438792,"rtol":1e-7},
+    {"id":"R3_C","table":33,"T":750,"P":78.3095639,"region":3,"v":0.002,"h":2258.68845,"u":2102.06932,"s":4.46971906,"rtol":1e-7},
+    {"id":"R5_A","table":42,"T":1500,"P":0.5,"region":5,"v":1.38455090,"h":5219.76855,"u":4527.49310,"s":9.65408875,"rtol":1e-8},
+    {"id":"R5_B","table":42,"T":1500,"P":30,"region":5,"v":0.0230761299,"h":5167.23514,"u":4474.95124,"s":7.72970133,"rtol":1e-8},
+    {"id":"R5_C","table":42,"T":2000,"P":30,"region":5,"v":0.0311385219,"h":6571.22604,"u":5637.07038,"s":8.53640523,"rtol":1e-8}
+  ],
+  "saturation_temperatures": [
+    {"table":36,"P":0.1,"T":372.755919},
+    {"table":36,"P":1,"T":453.035632},
+    {"table":36,"P":10,"T":584.149488}
+  ]
+}
