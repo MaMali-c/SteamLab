@@ -1,0 +1,62 @@
+{
+  "runtime": "Pyodide 0.27.7 / real IF97",
+  "checks": [
+    {
+      "pair": "T_P",
+      "passed": true,
+      "method": "native IF97 T,P"
+    },
+    {
+      "pair": "T_x",
+      "passed": true,
+      "method": "native IF97 saturation"
+    },
+    {
+      "pair": "P_x",
+      "passed": true,
+      "method": "native IF97 saturation"
+    },
+    {
+      "pair": "T_s",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "T_u",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "T_h",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "T_v",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "P_s",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "P_u",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "P_h",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    },
+    {
+      "pair": "P_v",
+      "passed": true,
+      "method": "IF97 saturation mixture balance"
+    }
+  ],
+  "saturation_samples": 161,
+  "invalid_quality_rejected": true
+}

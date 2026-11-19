@@ -1,0 +1,21 @@
+# Import this Blueprint only after approving public deployment.
+services:
+  - type: web
+    name: termoyazd-api
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    plan: starter
+    autoDeployTrigger: 'off'
+    healthCheckPath: /api/health
+    envVars:
+      - key: TERMOYAZD_ENV
+        value: production
+      - key: TERMOYAZD_CORS_ORIGINS
+        sync: false
+      - key: TERMOYAZD_MAX_BODY_BYTES
+        value: '16384'
+      - key: TERMOYAZD_MAX_CALCULATIONS
+        value: '2'
+      - key: OPENBLAS_NUM_THREADS
+        value: '1'

@@ -1,0 +1,60 @@
+{
+  "checks": [
+    {
+      "path": "/assets/index-6nmaLdoG.js",
+      "downloaded_bytes": 267677,
+      "passed": true
+    },
+    {
+      "path": "/assets/index-BsDf-ZJj.css",
+      "downloaded_bytes": 41562,
+      "passed": true
+    },
+    {
+      "path": "/python/engine-worker.js",
+      "downloaded_bytes": 2481,
+      "passed": true
+    },
+    {
+      "path": "/python/engine.py",
+      "downloaded_bytes": 11075,
+      "passed": true
+    },
+    {
+      "path": "/python/thermo.py",
+      "downloaded_bytes": 3759,
+      "passed": true
+    },
+    {
+      "path": "/python/plotting.py",
+      "downloaded_bytes": 1798,
+      "passed": true
+    },
+    {
+      "path": "/python/iapws-1.5.5-py3-none-any.whl",
+      "downloaded_bytes": 117421,
+      "passed": true
+    },
+    {
+      "path": "/pyodide/pyodide.mjs",
+      "downloaded_bytes": 13931,
+      "passed": true
+    },
+    {
+      "path": "/pyodide/pyodide.asm.wasm",
+      "downloaded_bytes": 10105545,
+      "passed": true
+    },
+    {
+      "path": "/pyodide/python_stdlib.zip",
+      "downloaded_bytes": 2360737,
+      "passed": true
+    },
+    {
+      "path": "/pyodide/pyodide-lock.json",
+      "downloaded_bytes": 112205,
+      "passed": true
+    }
+  ],
+  "browser_ui_test": false
+}
