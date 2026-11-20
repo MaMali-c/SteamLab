@@ -21,6 +21,8 @@ testpaths = ["tests"]
 addopts = "-ra"
 
 [tool.ruff]
+# The new application has its own build, scientific and integration workflow.
+extend-exclude = ["termoyazd"]
 target-version = "py311"
 line-length = 100
 

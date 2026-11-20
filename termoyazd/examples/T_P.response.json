@@ -1,0 +1,44 @@
+{
+  "input_pair": "T_P",
+  "normalized_inputs": {
+    "T": 300.0,
+    "P": 500.0
+  },
+  "calculated_properties": {
+    "h": 3064.5962196258724,
+    "u": 2803.294835850265,
+    "s": 7.461447776628322,
+    "v": 0.522602767551215
+  },
+  "full_state": {
+    "T": 300.0,
+    "P": 500.0,
+    "h": 3064.5962196258724,
+    "u": 2803.294835850265,
+    "s": 7.461447776628322,
+    "v": 0.522602767551215
+  },
+  "region": 2,
+  "phase": "Superheated vapor",
+  "quality": null,
+  "saturation": {
+    "pressure_at_T_kpa": 8587.70832955728,
+    "temperature_at_P_c": 151.83624387684512
+  },
+  "solver_method": "native IF97 T,P",
+  "convergence": {
+    "converged": true,
+    "residuals": {
+      "T": 0.0,
+      "P": 0.0
+    },
+    "tolerances": {
+      "T": 6.199999999999999e-05,
+      "P": 0.00011999999999999999
+    },
+    "evaluations": 0,
+    "verified_candidates": 1,
+    "uniqueness_certified": true
+  },
+  "scientific_warnings": []
+}

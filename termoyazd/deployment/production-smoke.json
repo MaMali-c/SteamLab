@@ -1,0 +1,303 @@
+{
+  "target": "http://127.0.0.1:18743",
+  "checks": [
+    {
+      "name": "health",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "real IF97 seed",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "T_P",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "native IF97 T,P",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "T": 0.0,
+            "P": 0.0
+          },
+          "tolerances": {
+            "T": 6.199999999999999e-05,
+            "P": 0.00011999999999999999
+          },
+          "evaluations": 0,
+          "verified_candidates": 1,
+          "uniqueness_certified": true
+        }
+      }
+    },
+    {
+      "name": "T_x",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "native IF97 saturation",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "T": 0.0,
+            "x": 0.0
+          },
+          "tolerances": {
+            "T": 3.236724877536902e-05,
+            "x": 8.999999999999999e-08
+          },
+          "evaluations": 0,
+          "verified_candidates": 1,
+          "uniqueness_certified": true
+        }
+      }
+    },
+    {
+      "name": "P_x",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "native IF97 saturation",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "P": 0.0,
+            "x": 0.0
+          },
+          "tolerances": {
+            "P": 0.00011999999999999999,
+            "x": 8.999999999999999e-08
+          },
+          "evaluations": 0,
+          "verified_candidates": 1,
+          "uniqueness_certified": true
+        }
+      }
+    },
+    {
+      "name": "T_s",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "T": 0.0,
+            "s": 0.0
+          },
+          "tolerances": {
+            "T": 3.236724877536902e-05,
+            "s": 7.393185611730512e-07
+          },
+          "evaluations": 537,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "T_u",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "T": 0.0,
+            "u": 0.0
+          },
+          "tolerances": {
+            "T": 3.236724877536902e-05,
+            "u": 0.00028240245498525093
+          },
+          "evaluations": 537,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "T_h",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "T": 0.0,
+            "h": 0.0
+          },
+          "tolerances": {
+            "T": 3.236724877536902e-05,
+            "h": 0.000295591626623298
+          },
+          "evaluations": 537,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "T_v",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "T": 0.0,
+            "v": 0.0
+          },
+          "tolerances": {
+            "T": 3.236724877536902e-05,
+            "v": 2.657834327609407e-08
+          },
+          "evaluations": 537,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "P_s",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "P": 0.0,
+            "s": 0.0
+          },
+          "tolerances": {
+            "P": 0.00011999999999999999,
+            "s": 7.393185611730512e-07
+          },
+          "evaluations": 1028,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "P_u",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "P": 0.0,
+            "u": 0.0
+          },
+          "tolerances": {
+            "P": 0.00011999999999999999,
+            "u": 0.00028240245498525093
+          },
+          "evaluations": 1028,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "P_h",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "P": 0.0,
+            "h": 0.0
+          },
+          "tolerances": {
+            "P": 0.00011999999999999999,
+            "h": 0.000295591626623298
+          },
+          "evaluations": 1028,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "P_v",
+      "passed": true,
+      "detail": {
+        "status": 200,
+        "method": "IF97 saturation mixture balance",
+        "convergence": {
+          "converged": true,
+          "residuals": {
+            "P": 0.0,
+            "v": 0.0
+          },
+          "tolerances": {
+            "P": 0.00011999999999999999,
+            "v": 2.657834327609407e-08
+          },
+          "evaluations": 1039,
+          "verified_candidates": 1,
+          "uniqueness_certified": false
+        }
+      }
+    },
+    {
+      "name": "invalid quality",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "saturation ambiguity",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "161 real saturation samples",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "production hides /docs",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "production hides /openapi.json",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "exact allowed CORS origin",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "other origin rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "oversized request rejected",
+      "passed": true,
+      "detail": null
+    },
+    {
+      "name": "unsupported batch rejected",
+      "passed": true,
+      "detail": null
+    }
+  ],
+  "passed": true
+}

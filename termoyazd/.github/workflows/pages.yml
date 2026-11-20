@@ -1,0 +1,44 @@
+name: Publish termoyazd static site
+on:
+  push:
+    branches: [termoyazd-deploy]
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: termoyazd-static-site
+  cancel-in-progress: false
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.14'
+      - name: Restore checksum-verified Python runtime
+        run: python scripts/fetch-browser-runtime.py
+      - run: npm --prefix frontend ci
+      - name: Build termoyazd for the repository URL
+        run: npm run build
+        env:
+          VITE_BROWSER_ENGINE: 'true'
+          VITE_BASE_PATH: /SteamLab/
+      - run: node scripts/verify-browser-engine.mjs
+      - name: Publish built files on a dedicated branch
+        working-directory: dist
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          touch .nojekyll
+          git init -b termoyazd-site
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add .
+          git commit -m 'Publish verified termoyazd browser application'
+          git -c http.extraheader="AUTHORIZATION: basic $(printf 'x-access-token:%s' "$GH_TOKEN" | base64 -w0)" push --force "https://github.com/${{ github.repository }}.git" HEAD:termoyazd-site

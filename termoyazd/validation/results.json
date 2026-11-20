@@ -1,0 +1,12 @@
+{
+  "python": "3.14.10",
+  "iapws": "1.5.5",
+  "scipy": "1.18.1",
+  "tests_run": 25,
+  "failures": 0,
+  "errors": 0,
+  "reference_states": 13,
+  "comparisons": 52,
+  "within_rounding": 8,
+  "failure_details": []
+}

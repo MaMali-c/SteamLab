@@ -1,0 +1,370 @@
+{
+  "source_file": "SteamTableSI.pdf",
+  "sha256": "70ae4c4f3335ed23801ef25f22d94907c587646c7e756768dc66cab9350de3f8",
+  "note": "Actual PDF headings are F.1/F.2, not E.1/E.2. Volume heading on PDF page 1 is cm\u00b3/g; multiply by 0.001 for m\u00b3/kg. PDF page indices are 1-based. Source formulation and edition unidentified; no attribution of discrepancies to a specific formulation.",
+  "points": [
+    {
+      "id": "sat-100-0",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 100,
+        "x": 0
+      },
+      "printed": {
+        "h": 419.1,
+        "u": 419.0,
+        "s": 1.3069,
+        "v": 1.044
+      },
+      "reference": {
+        "h": 419.1,
+        "u": 419.0,
+        "s": 1.3069,
+        "v": 0.001044
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 5e-07
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "sat-100-1",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 100,
+        "x": 1
+      },
+      "printed": {
+        "h": 2676.0,
+        "u": 2506.5,
+        "s": 7.3554,
+        "v": 1673.0
+      },
+      "reference": {
+        "h": 2676.0,
+        "u": 2506.5,
+        "s": 7.3554,
+        "v": 1.673
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 5e-05
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "mixture-0.25",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 100,
+        "x": 0.25
+      },
+      "printed": null,
+      "reference": {
+        "h": 983.325,
+        "u": 940.875,
+        "s": 2.819025,
+        "v": 0.41903300000000004
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 1.2875000000000001e-05
+      },
+      "kind": "derived mixture from transcribed endpoints; not a printed row"
+    },
+    {
+      "id": "mixture-0.5",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 100,
+        "x": 0.5
+      },
+      "printed": null,
+      "reference": {
+        "h": 1547.55,
+        "u": 1462.75,
+        "s": 4.33115,
+        "v": 0.837022
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 2.525e-05
+      },
+      "kind": "derived mixture from transcribed endpoints; not a printed row"
+    },
+    {
+      "id": "mixture-0.75",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 100,
+        "x": 0.75
+      },
+      "printed": null,
+      "reference": {
+        "h": 2111.775,
+        "u": 1984.625,
+        "s": 5.843275,
+        "v": 1.255011
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 3.7625000000000007e-05
+      },
+      "kind": "derived mixture from transcribed endpoints; not a printed row"
+    },
+    {
+      "id": "sat-150-0",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 150,
+        "x": 0
+      },
+      "printed": {
+        "h": 632.1,
+        "u": 631.6,
+        "s": 1.8416,
+        "v": 1.091
+      },
+      "reference": {
+        "h": 632.1,
+        "u": 631.6,
+        "s": 1.8416,
+        "v": 0.001091
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 5e-07
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "sat-150-1",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 150,
+        "x": 1
+      },
+      "printed": {
+        "h": 2745.4,
+        "u": 2558.6,
+        "s": 6.8358,
+        "v": 392.4
+      },
+      "reference": {
+        "h": 2745.4,
+        "u": 2558.6,
+        "s": 6.8358,
+        "v": 0.3924
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 5e-05
+      },
+      "kind": "direct transcription",
+      "transcription_note": "Re-read at enlarged PDF page 2, 150 \u00b0C row: v=392.4 cm\u00b3/g and s=6.8358. Corrected initial transcription before final report; no computational values used to choose reference values."
+    },
+    {
+      "id": "sat-200-0",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 200,
+        "x": 0
+      },
+      "printed": {
+        "h": 852.4,
+        "u": 850.6,
+        "s": 2.3307,
+        "v": 1.156
+      },
+      "reference": {
+        "h": 852.4,
+        "u": 850.6,
+        "s": 2.3307,
+        "v": 0.001156
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 5e-07
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "sat-200-1",
+      "table": "F.1",
+      "pdf_page": 2,
+      "pair": "T_x",
+      "inputs": {
+        "T": 200,
+        "x": 1
+      },
+      "printed": {
+        "h": 2790.9,
+        "u": 2593.2,
+        "s": 6.4278,
+        "v": 127.2
+      },
+      "reference": {
+        "h": 2790.9,
+        "u": 2593.2,
+        "s": 6.4278,
+        "v": 0.1272
+      },
+      "rounding_half_step": {
+        "h": 0.05,
+        "u": 0.05,
+        "s": 5e-05,
+        "v": 5e-05
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "super-100-150",
+      "table": "F.2",
+      "pdf_page": 4,
+      "pair": "T_P",
+      "inputs": {
+        "T": 150,
+        "P": 100
+      },
+      "printed": {
+        "v": 1936.3,
+        "u": 2582.7,
+        "h": 2776.3,
+        "s": 7.6137
+      },
+      "reference": {
+        "v": 1.9363,
+        "u": 2582.7,
+        "h": 2776.3,
+        "s": 7.6137
+      },
+      "rounding_half_step": {
+        "v": 5e-05,
+        "u": 0.05,
+        "h": 0.05,
+        "s": 5e-05
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "super-200-200",
+      "table": "F.2",
+      "pdf_page": 4,
+      "pair": "T_P",
+      "inputs": {
+        "T": 200,
+        "P": 200
+      },
+      "printed": {
+        "v": 1080.4,
+        "u": 2654.4,
+        "h": 2870.5,
+        "s": 7.5072
+      },
+      "reference": {
+        "v": 1.0804,
+        "u": 2654.4,
+        "h": 2870.5,
+        "s": 7.5072
+      },
+      "rounding_half_step": {
+        "v": 5e-05,
+        "u": 0.05,
+        "h": 0.05,
+        "s": 5e-05
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "super-300-250",
+      "table": "F.2",
+      "pdf_page": 4,
+      "pair": "T_P",
+      "inputs": {
+        "T": 250,
+        "P": 300
+      },
+      "printed": {
+        "v": 796.44,
+        "u": 2729.0,
+        "h": 2967.9,
+        "s": 7.5176
+      },
+      "reference": {
+        "v": 0.79644,
+        "u": 2729.0,
+        "h": 2967.9,
+        "s": 7.5176
+      },
+      "rounding_half_step": {
+        "v": 5e-06,
+        "u": 0.05,
+        "h": 0.05,
+        "s": 5e-05
+      },
+      "kind": "direct transcription"
+    },
+    {
+      "id": "super-300-150",
+      "table": "F.2",
+      "pdf_page": 4,
+      "pair": "T_P",
+      "inputs": {
+        "T": 150,
+        "P": 300
+      },
+      "printed": {
+        "v": 633.74,
+        "u": 2570.3,
+        "h": 2760.4,
+        "s": 7.0771
+      },
+      "reference": {
+        "v": 0.63374,
+        "u": 2570.3,
+        "h": 2760.4,
+        "s": 7.0771
+      },
+      "rounding_half_step": {
+        "v": 5e-06,
+        "u": 0.05,
+        "h": 0.05,
+        "s": 5e-05
+      },
+      "kind": "direct transcription"
+    }
+  ]
+}
