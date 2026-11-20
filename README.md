@@ -41,3 +41,13 @@ Preferred local URL: http://localhost:5173; the launcher prints an alternative i
 The eleven modes do not imply every arbitrary input has a unique physical answer. Inverse global uniqueness is not mathematically certified and is flagged. In the recorded source-table comparison, 8/52 property differences fit printed output rounding; 44/52 exceed it and remain documented for investigation. Excel import/export, batch calculations and PDF reporting are not implemented. See the scientific and validation documentation before relying on results.
 
 The active termoyazd verification workflow is at repository-root `.github/workflows/termoyazd-verify.yml`. Historical SteamLab files and tests are kept separately. No repository-wide license is newly selected by this update; see [notices](termoyazd/NOTICE.md).
+
+## Dashboard / تصویر واقعی برنامه
+
+![termoyazd desktop dashboard — real IF97 calculation](termoyazd/docs/images/dashboard-desktop.png)
+
+Captured from the actual application after a successful T=300 °C, P=500 kPa IF97 calculation. [Mobile layout](termoyazd/docs/images/dashboard-mobile.png). These are application captures, not design mockups.
+
+## Windows / نصب روی ویندوز
+
+[راهنمای مرحله‌به‌مرحله نصب و اجرای ویندوز](termoyazd/docs/WINDOWS_FA.md) شامل Python و Node.js، دستورهای PowerShell، اجرای API و رابط، آزمون محاسبه و رفع خطاهای پورت و npm است. اجرای واقعی روی ویندوز در محیط فعلی تأیید نشده است.

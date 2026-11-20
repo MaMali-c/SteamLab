@@ -91,3 +91,7 @@ The example `.example.org` origin is a test origin, not a deployment URL. Testin
 | Plotly chunk-size warning | Known sizeable lazy chart bundle; warning alone is not build failure |
 
 No API credentials are required for thermodynamic calculations. Never place tokens in `VITE_*`, screenshots, logs or committed configuration.
+
+## Windows / نصب روی ویندوز
+
+[راهنمای مرحله‌به‌مرحله نصب و اجرای ویندوز](WINDOWS_FA.md) شامل Python و Node.js، دستورهای PowerShell، اجرای API و رابط، آزمون محاسبه و رفع خطاهای پورت و npm است. اجرای واقعی روی ویندوز در محیط فعلی تأیید نشده است.

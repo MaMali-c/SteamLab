@@ -103,3 +103,13 @@ The previously completed CI run [44477559246](https://github.com/MaMali-c/SteamL
 Read [project status](docs/PROJECT_STATUS.md), [Persian user guide](docs/USER_GUIDE_FA.md), [professor presentation guide](docs/PRESENTATION_FA.md), [contributing](CONTRIBUTING.md), [security configuration](SECURITY.md) and [dependency/source notices](NOTICE.md).
 
 No live deployment URL is asserted here. Uploading source to GitHub does not itself start the application. Follow the deployment guide to enable hosting.
+
+## Dashboard / تصویر واقعی برنامه
+
+![termoyazd desktop dashboard — real IF97 calculation](docs/images/dashboard-desktop.png)
+
+Captured from the actual application after a successful T=300 °C, P=500 kPa IF97 calculation. [Mobile layout](docs/images/dashboard-mobile.png). These are application captures, not design mockups.
+
+## Windows / نصب روی ویندوز
+
+[راهنمای مرحله‌به‌مرحله نصب و اجرای ویندوز](docs/WINDOWS_FA.md) شامل Python و Node.js، دستورهای PowerShell، اجرای API و رابط، آزمون محاسبه و رفع خطاهای پورت و npm است. اجرای واقعی روی ویندوز در محیط فعلی تأیید نشده است.

@@ -67,3 +67,13 @@ bash start.command
 ماشین‌حساب، تبدیل واحد، نمودارها، کپی JSON، API، اجرای مرورگری Python، راه‌انداز مک و آزمون خودکار موجودند. **ورود/خروج Excel، پردازش دسته‌ای، ذخیره تاریخچه و گزارش PDF هنوز پیاده‌سازی نشده‌اند.** خروجی CSV موجود در پوشه validation گزارش اعتبارسنجی توسعه‌دهنده است و قابلیت خروجی اکسل داشبورد محسوب نمی‌شود.
 
 برای انتشار، مسیر ساده‌تر میزبانی نسخه ایستا با موتور مرورگری است. مسیر React روی Vercel و FastAPI روی Render هم آماده پیکربندی است. [راهنمای انتشار](docs/DEPLOYMENT.md) تفاوت‌ها و تنظیم پوشه `termoyazd` را توضیح می‌دهد. وجود مخزن به معنی انتشار سایت نیست؛ در این مستند لینک زنده تأییدنشده ارائه نشده است.
+
+## Dashboard / تصویر واقعی برنامه
+
+![termoyazd desktop dashboard — real IF97 calculation](docs/images/dashboard-desktop.png)
+
+Captured from the actual application after a successful T=300 °C, P=500 kPa IF97 calculation. [Mobile layout](docs/images/dashboard-mobile.png). These are application captures, not design mockups.
+
+## Windows / نصب روی ویندوز
+
+[راهنمای مرحله‌به‌مرحله نصب و اجرای ویندوز](docs/WINDOWS_FA.md) شامل Python و Node.js، دستورهای PowerShell، اجرای API و رابط، آزمون محاسبه و رفع خطاهای پورت و npm است. اجرای واقعی روی ویندوز در محیط فعلی تأیید نشده است.

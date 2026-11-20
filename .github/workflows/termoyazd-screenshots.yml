@@ -1,0 +1,64 @@
+name: Capture real termoyazd dashboard
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/termoyazd-screenshots.yml'
+      - 'termoyazd/scripts/capture-dashboard.cjs'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  screenshots:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: termoyazd/frontend/package-lock.json
+      - run: npm --prefix termoyazd/frontend ci
+      - run: npm run build
+        working-directory: termoyazd
+      - name: Install isolated screenshot browser
+        run: |
+          npm install --prefix "$RUNNER_TEMP/termoyazd-browser" playwright@1.56.1
+          "$RUNNER_TEMP/termoyazd-browser/node_modules/.bin/playwright" install --with-deps chromium
+      - name: Capture actual application and calculation
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory termoyazd/dist > "$RUNNER_TEMP/termoyazd-preview.log" 2>&1 &
+          server_pid=$!
+          trap 'kill "$server_pid" 2>/dev/null || true' EXIT
+          for i in $(seq 1 40); do
+            if curl -fsS http://127.0.0.1:4173 >/dev/null; then break; fi
+            sleep 0.25
+          done
+          TERMOYAZD_PLAYWRIGHT="$RUNNER_TEMP/termoyazd-browser/node_modules/playwright" node termoyazd/scripts/capture-dashboard.cjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: termoyazd-real-dashboard
+          path: termoyazd/docs/images/*.png
+      - name: Commit verified screenshots only
+        env:
+          GH_TOKEN: '${{ github.token }}'
+          GH_REPO: '${{ github.repository }}'
+        run: |
+          python3 - <<'PY'
+          import base64,json,os,urllib.request,urllib.error
+          from pathlib import Path
+          for name in ['dashboard-desktop.png','dashboard-mobile.png']:
+              path='termoyazd/docs/images/'+name
+              url='https://api.github.com/repos/'+os.environ['GH_REPO']+'/contents/'+path
+              headers={'Authorization':'Bearer '+os.environ['GH_TOKEN'],'Accept':'application/vnd.github+json','Content-Type':'application/json'}
+              payload={'message':'docs: add real termoyazd dashboard capture '+name,'content':base64.b64encode(Path(path).read_bytes()).decode(),'branch':'main'}
+              try:
+                  with urllib.request.urlopen(urllib.request.Request(url+'?ref=main',headers=headers)) as response:
+                      payload['sha']=json.load(response)['sha']
+              except urllib.error.HTTPError as error:
+                  if error.code!=404: raise
+              request=urllib.request.Request(url,data=json.dumps(payload).encode(),headers=headers,method='PUT')
+              with urllib.request.urlopen(request) as response:
+                  print(name,response.status)
+          PY
