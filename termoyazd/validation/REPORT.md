@@ -1,4 +1,6 @@
-# Scientific validation — actual execution, 2026-11-12
+# Original scientific validation record — 2026-11-12
+
+This file preserves the original reference-comparison record. For the current complete suite and precise verification limits, see [current evidence](../docs/VALIDATION.md) and [2026-11-20 execution](../docs/TEST_RESULTS.md). Historical environment and browser statements below are not a fresh browser verification claim.
 
 ## Results
 25 engine tests executed with unittest: 25 passed, 0 failures, 0 errors. They are also pytest-collectable via backend/tests/test_reference_validation.py. This earlier run has since been supplemented by 52 passing pytest cases in the Linux environment (see ../VERIFICATION.md). Runtime: Python 3.14.10, iapws 1.5.5, SciPy 1.18.1, reused from an existing local SteamLab virtual environment.

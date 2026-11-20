@@ -1,13 +1,16 @@
-# انتشار مستقیم روی GitHub Pages
+# GitHub Pages و موتور مرورگری
 
-مخزن موجود: https://github.com/MaMali-c/SteamLab (از قبل عمومی است).
-اگر اتصال خودکار GitHub مجوز نوشتن نداشت، می‌توان از روش مرورگری زیر استفاده کرد. بارگذاری سورس، به‌تنهایی سایت را فعال نمی‌کند.
+GitHub Pages فقط فایل ایستا میزبانی می‌کند و نمی‌تواند FastAPI اجرا کند. termoyazd می‌تواند همان موتور علمی Python را با Pyodide در مرورگر اجرا کند؛ بنابراین نسخه ایستای واقعی ممکن است.
 
-1. بسته termoyazd-github-pages.zip را باز کنید. این بسته **خروجی آماده سایت** است، نه ZIP سورس پروژه. index.html و پوشه‌های assets، python و pyodide باید در ریشه خروجی باشند.
-2. در مخزن SteamLab، از منوی شاخه main شاخه تازه termoyazd-site بسازید و همان شاخه را انتخاب کنید. سپس Add file → Upload files را بزنید. **محتویات پوشه بازشده** را بارگذاری کنید؛ خود ZIP یا پوشه والد را بارگذاری نکنید. در Finder با Command+Shift+. نمایش فایل‌های مخفی را روشن کنید تا فایل .nojekyll هم همراه بقیه انتخاب شود. همه ۲۲ فایل و پوشه‌هایشان حفظ شوند. Commit changes را بزنید.
-3. Settings → Pages → Build and deployment را باز کنید. Source = Deploy from a branch و Branch = termoyazd-site و پوشه /(root) را انتخاب و Save کنید.
-4. منتظر موفقیت اجرای Pages بمانید و فقط URL واقعی نمایش‌داده‌شده در همان صفحه را برای استاد ارسال کنید. تا پایان build، سایت را منتشرشده فرض نکنید. مرورگر ناشناس، محاسبه و نمودارها و خروجی PNG را بررسی کنید.
+از پوشه `SteamLab/termoyazd`:
 
-دامنه GitHub Pages زیرمسیر /SteamLab/ دارد. بسته با همین مسیر ساخته شده است؛ بدون تغییر base path آن را به مخزن با نام دیگری نبرید. سورس بازسازی با `VITE_BASE_PATH=/SteamLab/ npm run build` ساخته می‌شود. مسیر worker و runtime نسبت به محل سایت حل می‌شوند. هر ۱۱ جفت در Python/WebAssembly دوباره آزموده شد و ۷ درخواست HTTP زیرمسیر موفق بود. آزمون تصویری جدید مرورگر انجام نشده است.
+```bash
+npm --prefix frontend ci
+VITE_BROWSER_ENGINE=true VITE_BASE_PATH=/SteamLab/ npm run build
+```
 
-این روش به ورود Vercel یا روشن‌بودن مک وابسته نیست. استاد فقط مرورگر و اینترنت نیاز دارد. شاخه main تغییر نمی‌کند. اگر بعدها بخواهید از workflow استفاده کنید، .github/workflows/pages.yml برای ساخت از شاخه termoyazd-deploy و انتشار خروجی در termoyazd-site آماده است؛ برای فعال‌سازی/اجرای آن همچنان دسترسی نوشتن GitHub لازم است. runtime از توزیع‌های رسمی و با کنترل SHA-256 بازیابی می‌شود.
+خروجی بسته‌بندی‌شده `dist/` است. مسیر پایه برای سایت پروژه این مخزن `/SteamLab/` است؛ برای دامنه اختصاصی ریشه، `/` را استفاده کنید. بار اول فایل‌های runtime حجم قابل توجهی دارند.
+
+قالب workflow در `.github/workflows/pages.yml` **داخل پوشه termoyazd** فعال نیست. برای انتشار واقعی باید یک workflow در `.github/workflows/` ریشه مخزن ساخته و مسیرهای کاری به `termoyazd` اصلاح شود، سپس Pages فعال و خروجی واقعی بررسی شود. این مستند به خودی خود چیزی منتشر نمی‌کند.
+
+[جزئیات انتشار و جایگزین‌ها](docs/DEPLOYMENT.md)

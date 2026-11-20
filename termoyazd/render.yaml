@@ -3,6 +3,7 @@ services:
   - type: web
     name: termoyazd-api
     runtime: docker
+    rootDir: termoyazd
     dockerfilePath: ./backend/Dockerfile
     dockerContext: .
     plan: starter

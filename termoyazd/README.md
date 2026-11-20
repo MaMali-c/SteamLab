@@ -1,30 +1,105 @@
 # termoyazd
 
-Pure water/steam calculator: React/TypeScript/Tailwind dashboard, Python IAPWS-IF97/SciPy engine, eleven input pairs and interactive T–s, P–v and P–h diagrams. English labels include Persian explanations.
+**Water & steam thermodynamics, from an engineering input pair to an inspectable IF97 result.**
 
-## Start on macOS
+[راهنمای کامل فارسی](README_FA.md) · [Scientific model](docs/SCIENTIFIC_MODEL.md) · [Architecture](docs/ARCHITECTURE.md) · [API](docs/API.md) · [Validation evidence](docs/VALIDATION.md) · [Deployment](docs/DEPLOYMENT.md)
 
-Install Node.js 22 and Python 3.11+ for the local FastAPI edition, then run `bash start.command` from this folder. For a browser-only production build, Python is not required on the frontend host:
+termoyazd is a university engineering project for **pure water and steam only**. It combines a dark, responsive React dashboard with the Python `iapws` implementation of IAPWS-IF97. The same calculation modules run behind FastAPI or inside a browser Web Worker using Pyodide. Successful outputs come from the equation library and verified numerical solutions; the interface does not substitute demonstration numbers for calculations.
+
+The repository retains its historical name **SteamLab**. The current application and its documentation live in **`termoyazd/`**; older root-level files are preserved for history.
+
+## Capabilities
+
+- Exactly eleven input pairs, with property-specific engineering units and conversion.
+- Four remaining main property cards, separate normalized inputs, full state, phase, IF97 region, physically defined quality and applicable saturation information.
+- Native IF97 calls, equilibrium mixture relations and constrained SciPy inverse searches with recomputed residuals.
+- Explicit invalid-input, saturation ambiguity, multiple-root and incomplete-search errors.
+- T–s, P–v and P–h diagrams from calculated saturation data, with hover, zoom, pan, reset and PNG export controls.
+- English engineering terminology with Persian supporting labels, input-change invalidation, loading/error states, reset and JSON result copying.
+- macOS launcher with dependency setup, available-port selection, readiness checks and browser opening.
+- Production configuration, request limits, automated tests, source-table dataset and reproducible comparison reports.
+
+| Input pair | Meaning | Main result cards |
+|---|---|---|
+| T + P | Temperature + pressure | h, u, s, v |
+| T + x | Temperature + vapor mass quality | h, u, s, v; saturation P separately |
+| P + x | Pressure + vapor mass quality | h, u, s, v; saturation T separately |
+| T + s | Temperature + entropy | P, h, u, v |
+| T + u | Temperature + internal energy | P, h, s, v |
+| T + h | Temperature + enthalpy | P, u, s, v |
+| T + v | Temperature + specific volume | P, h, u, s |
+| P + s | Pressure + entropy | T, h, u, v |
+| P + u | Pressure + internal energy | T, h, s, v |
+| P + h | Pressure + enthalpy | T, u, s, v |
+| P + v | Pressure + specific volume | T, h, u, s |
+
+**Scientific status:** inverse search is finite and does not mathematically certify global uniqueness. Those responses explicitly carry `uniqueness_certified=false`; a state marker is withheld on diagrams. Source-table validation also has unresolved discrepancies beyond printed rounding. See [limitations and evidence](docs/VALIDATION.md). Excel, batch calculations and PDF reports are **not implemented**.
+
+## Run on macOS
+
+Install Python and Node.js for local development. Python 3.14.10 and Node 22.14.0 are the versions exercised in this environment; the launcher accepts Python 3.11+ and the package declares Node 22–24.
 
 ```bash
-npm --prefix frontend ci
-npm run build
+git clone https://github.com/MaMali-c/SteamLab.git
+cd SteamLab/termoyazd
+bash start.command
 ```
 
-The prebuild hook restores the exact Pyodide/iapws runtime from official distributions with SHA-256 verification. Runtime binaries and node_modules are not committed. The first build needs internet access; downloaded assets are then self-hosted in the output. The personal ZIP includes these assets and the supplied reference PDF; this GitHub source tree retains the page-referenced validation dataset and original PDF hash, but does not redistribute the PDF. Place your own supplied copy at validation/SteamTableSI.pdf when inspecting the source tables.
+The launcher creates its environment, installs dependencies, starts FastAPI and Vite, verifies the API proxy and opens the browser. Preferred address: **http://localhost:5173**. When occupied, it prints another available port. Keep Terminal open; Ctrl+C stops both services. The printed URL and `.runtime/session.json` describe the actual session.
 
-## Scientific and deployment documentation
+For frontend-only browser-Python development, after `npm --prefix frontend ci`, run `npm run dev` from this directory. This is a separate workflow from the two-service launcher.
 
-- [Scientific methods and numerical limitations](backend/SCIENCE.md)
-- [Recorded verification results](deployment/TEST_RESULTS.md)
-- [Source-table comparison](validation/REPORT.md)
-- [macOS deployment guide in Persian](DEPLOYMENT_FA.md)
-- [GitHub Pages guide in Persian](GITHUB_PAGES_FA.md)
+## Build and verify
 
-All eleven pairs call the real engine; stale results clear on input changes. Quality is shown only where physically defined. Inverse finite searches do not certify global root completeness, and PDF differences exceeding source rounding remain documented. No exact-agreement or IAPWS-product certification is claimed. Excel import/export and batch calculations are not implemented.
+Frontend checks, including the script named `test:unit`, require a running real API because the plotting test loads actual saturation data. Start the launcher or the API before invoking them.
 
-For backend tests, install backend/requirements-ci.txt and run pytest from backend. For live React integration tests, start FastAPI then run `npm --prefix frontend test`. `node scripts/verify-browser-engine.mjs` independently exercises real IF97 in WebAssembly after a build.
+Run these commands **inside `SteamLab/termoyazd`**:
 
-## Source upload
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r backend/requirements-ci.txt
+npm --prefix frontend ci
+(cd backend && python -m pytest -q)
+TERMOYAZD_TEST_API=http://127.0.0.1:8000 npm --prefix frontend run test:unit
+npm run build
+node scripts/verify-browser-engine.mjs
+python validation/run_validation.py
+```
 
-This project is stored in the `termoyazd/` directory on the `termoyazd-source` branch of the existing SteamLab repository. The previous main branch is preserved. Uploading source does not itself publish a website. GitHub Pages and Vercel/Render configurations are provided for a separate deployment decision. No license is chosen on the owner's behalf.
+The build verifies/downloads pinned browser-runtime assets and copies the actual Python modules. The first build needs network access; binaries are intentionally not committed. `dist/` is the packaged static site; `frontend/dist/` is Vite's output. See [development](docs/DEVELOPMENT.md) for API integration tests and environment options.
+
+## Real example
+
+With a local API running:
+
+```bash
+curl -s http://127.0.0.1:8000/api/calculate \
+  -H 'Content-Type: application/json' \
+  -d '{"input_pair":"T_P","values":{"T":300,"P":500}}'
+```
+
+The checked-in [actual response](examples/T_P.response.json), generated through FastAPI's TestClient, gives approximately **h = 3064.5962 kJ/kg**, **u = 2803.2948 kJ/kg**, **s = 7.461448 kJ/(kg·K)** and **v = 0.5226028 m³/kg**. These are IF97 calculations at 300 °C and 500 kPa, not values taken from the dashboard design reference.
+
+## Project map
+
+| Path | Responsibility |
+|---|---|
+| `frontend/src/` | React interface, unit conversion, response validation, transport and Plotly UI |
+| `backend/app/engine.py` | Eleven-pair solver, candidates, inverse search and residual verification |
+| `backend/app/thermo.py` | IF97 limits, T/P boundary validation and physical serialization |
+| `backend/app/plotting.py` | Cached calculated saturation data |
+| `backend/app/main.py` | FastAPI routes and application setup |
+| `backend/app/settings.py` | Runtime environment, hosts, CORS and limits |
+| `backend/tests/` | Engine, API, reference and production guard tests |
+| `validation/` | Transcribed reference points, provenance, CSV errors and regeneration script |
+| `scripts/` | Launcher orchestration, runtime verification, site packaging and smoke checks |
+| `docs/` | Architecture, scientific model, API, deployment, development and Persian guides |
+
+## Evidence and documentation
+
+The previously completed CI run [44477559246](https://github.com/MaMali-c/SteamLab/actions/runs/44477559246) exercised backend tests, real browser-Python calculations, production API checks, React integration and both production build modes. New commits should be judged by their own Actions results. Test passing establishes the covered behavior; it is not industrial or experimental certification.
+
+Read [project status](docs/PROJECT_STATUS.md), [Persian user guide](docs/USER_GUIDE_FA.md), [professor presentation guide](docs/PRESENTATION_FA.md), [contributing](CONTRIBUTING.md), [security configuration](SECURITY.md) and [dependency/source notices](NOTICE.md).
+
+No live deployment URL is asserted here. Uploading source to GitHub does not itself start the application. Follow the deployment guide to enable hosting.
